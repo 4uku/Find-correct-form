@@ -1,0 +1,40 @@
+[
+  {
+    "user_phone": "+7 345 368 03 19",
+    "user_email": "gldkdh@skfdh.tu",
+    "user_birth_date": "17.09.1945",
+    "user_name": "Manana"
+  },
+  {
+    "seller_name": "bobby seller",
+    "seller_address": "Russia, Kazan",
+    "seller_phone": "+7 363 256 32 09",
+    "created_date": "2000-12-29",
+    "seller_email": "bobby_seller@ya.ru",
+    "seller_description": "best seller from Kazan"
+  },
+  {
+    "user_phone": "+7 345 368 03 19",
+    "user_email": "gldkdh@skfdh.tu",
+    "user_birth_date": "17.09.1945",
+    "user_name": "Manana",
+    "seller_name": "bobby seller",
+    "seller_address": "Russia, Kazan",
+    "seller_phone": "+7 363 256 32 09",
+    "created_date": "2000-12-29",
+    "seller_email": "bobby_seller@ya.ru",
+    "seller_description": "best seller from Kazan"
+  },
+  {
+    "created_date": "2023-01-13",
+    "customer_name": "rick",
+    "seller_name": "bobby seller",
+    "description": "just description for whatever"
+  },
+  {
+    "product_name": "text",
+    "seller_name": "text",
+    "product_description": "text",
+    "date_add": "16/06/1999"
+  }
+]

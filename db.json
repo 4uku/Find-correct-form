@@ -1,0 +1,50 @@
+{
+  "_default": {
+    "1": {
+      "name": "UserForm",
+      "user_phone": "phone",
+      "user_email": "email",
+      "user_birth_date": "date",
+      "user_name": "text"
+    },
+    "2": {
+      "name": "SellerForm",
+      "seller_name": "text",
+      "seller_address": "text",
+      "seller_phone": "phone",
+      "created_date": "date",
+      "seller_email": "email",
+      "seller_description": "text"
+    },
+    "3": {
+      "name": "OrderForm",
+      "created_date": "date",
+      "customer_name": "text",
+      "seller_name": "text"
+    },
+    "4": {
+      "name": "ProductForm",
+      "product_name": "text",
+      "seller_name": "text",
+      "product_description": "text",
+      "date_add": "date"
+    },
+    "5": {
+      "name": "DescriptionForm",
+      "description": "text"
+    },
+    "6": {
+      "name": "CarForm",
+      "brand": "text",
+      "model": "text",
+      "date_produce": "date"
+    },
+    "7": {
+      "name": "DoctorForm",
+      "doctor_name": "text",
+      "doctor_phone": "phone",
+      "doctor_email": "email",
+      "last_work_day": "date"
+    }
+  }
+}
