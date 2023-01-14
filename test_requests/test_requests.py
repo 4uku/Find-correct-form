@@ -1,16 +1,16 @@
 import json
 from urllib.parse import urlencode
-
-import urllib3
+from urllib.request import Request, urlopen
 
 URL = 'http://127.0.0.1:5000/get_form?'
-http = urllib3.PoolManager()
 
 def main(test_data):
     for item in test_data:
         encoded_args = urlencode(item)
-        response = http.request('POST', URL + encoded_args)
-        response_form = json.loads(response.data.decode('utf-8'))
+        # response = http.request('POST', URL + encoded_args)
+        request = Request(URL + encoded_args, method='POST')
+        with urlopen(request) as response:
+            response_form = response.read().decode('utf-8')
         print(f'REQUEST\n{item}\nRESPONSE\n{response_form}')
         print('-------------------------')
 
