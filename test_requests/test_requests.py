@@ -1,7 +1,9 @@
 import json
+from pathlib import Path
 from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
+BASE_DIR = Path(__file__).parent
 URL = 'http://127.0.0.1:5000/get_form?'
 
 def main(test_data):
@@ -16,6 +18,6 @@ def main(test_data):
 
 
 if __name__ == '__main__':
-    with open('test_requests/test_data.json', 'r') as f:
+    with open(BASE_DIR / 'test_data.json', 'r') as f:
         test_data = json.load(f)
     main(test_data)
