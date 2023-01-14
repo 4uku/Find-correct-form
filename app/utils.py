@@ -4,18 +4,22 @@ from typing import List
 
 from tinydb import TinyDB
 
-DB_PATH = Path('db.json').resolve()
+DB_PATH = Path("db.json").resolve()
 db = TinyDB(DB_PATH)
 
-REGEX_EMAIL = re.compile(r'([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+')
-REGEX_DATE_1 = re.compile(r'^\d{4}[-]\d{2}[-]\d{2}$')
-REGEX_DATE_2 = re.compile(r'^\d{2}[.]\d{2}[.]\d{4}$')
+REGEX_EMAIL = re.compile(
+    r"([A-Za-z0-9]+[.-_])*[A-Za-z0-9]+@[A-Za-z0-9-]+(\.[A-Z|a-z]{2,})+"
+)
+REGEX_DATE_1 = re.compile(r"^\d{4}[-]\d{2}[-]\d{2}$")
+REGEX_DATE_2 = re.compile(r"^\d{2}[.]\d{2}[.]\d{4}$")
+
 
 def value_to_type(params: dict) -> dict:
     """
     Функция принимает словарь с параметрами из URL-запроса,
     затем определяет и заменяет значение каждого ключа на соответствующий тип,
-    и возвращает его (словарь). Любой нераспознанный тип данных расценивается как "text"
+    и возвращает его (словарь). Любой нераспознанный тип данных расценивается
+    как "text"
 
     Запрос
     --------------
@@ -26,7 +30,7 @@ def value_to_type(params: dict) -> dict:
         "user_email": "user@mail.ru",
         "user_username": "johnnnnnny",
     }
-    
+
     Ответ
     --------------
     {
@@ -38,15 +42,18 @@ def value_to_type(params: dict) -> dict:
     }
     """
     for key, value in params.items():
-        if value[0] == '+':
-            params.update({key: 'phone'})
+        if value[0] == "+":
+            params.update({key: "phone"})
         elif re.fullmatch(REGEX_EMAIL, value):
-            params.update({key: 'email'})
-        elif re.fullmatch(REGEX_DATE_1, value) or re.fullmatch(REGEX_DATE_2, value):
-            params.update({key: 'date'})
+            params.update({key: "email"})
+        elif re.fullmatch(REGEX_DATE_1, value) or re.fullmatch(
+            REGEX_DATE_2, value
+        ):
+            params.update({key: "date"})
         else:
-            params.update({key: 'text'})
+            params.update({key: "text"})
     return params
+
 
 def find_forms(params: dict) -> List[dict] | dict:
     """
@@ -85,9 +92,9 @@ def find_forms(params: dict) -> List[dict] | dict:
     found_forms = []
     for item in db.all():
         item = dict(item)
-        name = item.pop('name')
+        name = item.pop("name")
         if item.items() <= fields_and_types.items():
-            found_forms.append({'name': name})
+            found_forms.append({"name": name})
 
     if found_forms:
         return found_forms
